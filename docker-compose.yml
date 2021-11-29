@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  php:
+    build: .
+    container_name: php
+    working_dir: /usr/src/myapp
+    volumes:
+      - $PWD:/usr/src/myapp
