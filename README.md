@@ -42,7 +42,7 @@ The Onfleet PHP library provides convenient access to the Onfleet API.
 ## Installation
 
 ```
-composer install onfleet/php-onfleet
+composer require onfleet/php-onfleet
 ```
 
 ## Requirements

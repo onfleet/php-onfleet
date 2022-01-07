@@ -40,7 +40,7 @@ La librería en PHP de Onfleet nos permite un acceso fácil y cómodo a la API d
 ## Instalación
 
 ```
-composer install onfleet/php-onfleet
+composer require onfleet/php-onfleet
 ```
 
 ## Requerimientos
