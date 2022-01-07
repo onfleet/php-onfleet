@@ -1,9 +1,9 @@
 # Onfleet PHP Wrapper
 
 [![License](https://img.shields.io/github/license/onfleet/php-onfleet)](https://github.com/onfleet/php-onfleet/blob/master/LICENSE)
-[![Latest version](https://img.shields.io/packagist/v/onfleet/php-onfleet)](https://google.com)
+[![Latest version](https://img.shields.io/packagist/v/onfleet/php-onfleet)](https://packagist.org/packages/onfleet/php-onfleet)
 ![Top language](https://img.shields.io/github/languages/top/onfleet/php-onfleet)
-[![Downloads](https://img.shields.io/packagist/dt/onfleet/php-onfleet)](https://packagist.org/packages/onfleet/php-onfleet)
+[![Downloads](https://img.shields.io/packagist/dm/onfleet/php-onfleet)](https://packagist.org/packages/onfleet/php-onfleet)
 
 > *Read this document in another language*:
 > [Español](https://github.com/onfleet/php-onfleet/blob/master/README.es.md)
