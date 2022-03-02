@@ -11,7 +11,7 @@ class Workers extends Resources
 		parent::__construct($api);
 		$this->defineTimeout();
 		$this->endpoints([
-			'create' =>  ['method' => 'GET', 'path' => '/workers'],
+			'create' =>  ['method' => 'POST', 'path' => '/workers'],
 			'get' => [
 				'method' => 'GET', 'path' => '/workers/:workerId',
 				'altPath' => '/workers', 'queryParams' => true
