@@ -2,7 +2,7 @@
 
 namespace Onfleet;
 
-use Onfleet\Resources as Resources;
+use Onfleet\resources as Resources;
 use Onfleet\errors\ValidationError;
 use stdClass;
 
@@ -33,7 +33,7 @@ class Onfleet
 	 */
 	public function __construct(
 		$apiKey,
-		$userTimeout,
+		$userTimeout = self::DEFAULT_TIMEOUT,
 		$baseURL = null,
 		$defaultPath = self::DEFAULT_PATH,
 		$defaultApiVersion = self::DEFAULT_API_VERSION
@@ -47,7 +47,7 @@ class Onfleet
 			throw new ValidationError('Onfleet API key not found, please obtain an API key from your organization admin');
 		}
 
-		if ($userTimeout > 70000) {
+		if ($userTimeout > self::DEFAULT_TIMEOUT) {
 			throw new ValidationError('User-defined timeout has to be shorter than 70000ms');
 		} else {
 			$this->_apiKey = $apiKey;
