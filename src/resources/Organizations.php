@@ -1,6 +1,6 @@
 <?php
 
-namespace Onfleet\Resources;
+namespace Onfleet\resources;
 
 class Organizations extends Resources
 {

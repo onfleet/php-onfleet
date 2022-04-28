@@ -8,8 +8,6 @@ use Onfleet\Onfleet;
 
 class OnfleetTest extends TestCase
 {
-
-	const TIMEOUT_DEFAULT = 70000;
 	/**
 	 * @dataProvider data
 	 */
@@ -17,7 +15,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('authenticate')->willReturn(true);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		self::assertTrue($onfleet->verifyKey());
 	}
@@ -29,7 +27,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["list"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->administrators->get();
 		self::assertIsArray($response);
@@ -47,7 +45,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["get"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->tasks->get('SxD9Ran6pOfnUDgfTecTsgXd');
 		self::assertIsArray($response);
@@ -62,7 +60,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["get"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->tasks->get('44a56188', 'shortId');
 		self::assertIsArray($response);
@@ -77,7 +75,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["createRecipient"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->recipients->create([
 			"name" => "Boris Foster",
@@ -99,7 +97,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getRecipients"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->recipients->get('+18881787788', 'phone');
 		self::assertIsArray($response);
@@ -114,7 +112,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getRecipients"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->recipients->get('Onfleet Rocks', 'name');
 		self::assertIsArray($response);
@@ -128,7 +126,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["createTeams"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->teams->create([
 			"name" => 'Onfleet Team',
@@ -152,7 +150,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getWorkerEta"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->teams->getWorkerEta('SxD9Ran6pOfnUDgfTecTsgXd', [
 			"dropoffLocation" => '101.627378,3.1403995',
@@ -170,7 +168,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["forceComplete"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->tasks->forceComplete('6Fe3qqFZ0DDwsM86zBlHJtlJ', [
 			"completionDetails" => [
@@ -189,7 +187,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["updateWorkers"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->workers->update('Mdfs*NDZ1*lMU0abFXAT82lM', [
 			"name" => 'Stephen Curry',
@@ -207,7 +205,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getWorker"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->workers->get();
 		self::assertIsArray($response);
@@ -225,7 +223,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["listWorkers"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->workers->get();
 		self::assertIsArray($response);
@@ -239,7 +237,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["delete"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->tasks->deleteOne('AqzN6ZAq*qlSDJ0FzmZIMZz~');
 		self::assertIsNumeric($response);
@@ -253,7 +251,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["listWebhooks"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->webhooks->get();
 		self::assertIsArray($response);
@@ -267,7 +265,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["createWebhook"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->webhooks->create([
 			"url" => "https://11ec4a02.ngrok.com/onfleet/taskStart", "trigger" => 0
@@ -286,7 +284,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["delete"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->webhooks->deleteOne("9zqMxI79mRcHpXE111nILiPn");
 		self::assertIsNumeric($response);
@@ -300,7 +298,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getContainer"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->webhooks->get("2Fwp6wS5wLNjDn36r1LJPscA", "workers");
 		self::assertIsArray($response);
@@ -315,7 +313,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["listHubs"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->hubs->get();
 		self::assertIsArray($response);
@@ -329,7 +327,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["createHub"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->hubs->create(
 			[
@@ -361,7 +359,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["updateHub"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->hubs->create(
 			[
@@ -380,7 +378,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["organization"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->organization->get();
 		self::assertIsArray($response);
@@ -397,7 +395,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["organizationDelegatee"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->organization->get("cBrUjKvQQgdRp~s1qvQNLpK*");
 		self::assertIsArray($response);
@@ -416,7 +414,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getDestination"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->destinations->get("0i~RR0SUIculbRFsIse6MENg");
 		self::assertIsArray($response);
@@ -431,7 +429,7 @@ class OnfleetTest extends TestCase
 	{
 		$curlClient = $this->createMock(CurlClient::class);
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["createDestination"]]);
-		$onfleet = new Onfleet($data["apiKey"], self::TIMEOUT_DEFAULT, null);
+		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->destinations->create([
 			"address" => [

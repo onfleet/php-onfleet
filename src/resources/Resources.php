@@ -1,6 +1,6 @@
 <?php
 
-namespace Onfleet\Resources;
+namespace Onfleet\resources;
 
 use Onfleet\Methods;
 
