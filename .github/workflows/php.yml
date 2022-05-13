@@ -5,6 +5,7 @@ on:
     types: [published]
 
 jobs:
+
   notify:
     needs: test
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":php: A new version of `php-onfleet` has been released: `${{ github.event.release.tag_name }}`"
+                    "text": ":php: A new version of `php-onfleet` has been released: `${{ github.event.release.tag_name }}` :tada:"
                   },
                   "accessory": {
                     "type": "button",
