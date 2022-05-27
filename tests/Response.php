@@ -518,6 +518,156 @@ return [
 				"notes" => "Always orders our GSC special",
 				"skipSMSNotifications" => false,
 				"metadata" => []
+			],
+			"listAssignedTasks" => [
+				"tasks" => [
+					"id" => "3VtEMGudjwjjM60j7deSIY3j",
+					"timeCreated" => 1643317843000,
+					"timeLastModified" => 1643319602671,
+					"organization" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+					"shortId" => "c77ff497",
+					"trackingURL" => "https://onf.lt/c77ff497",
+					"worker" => "ZxcnkJi~79nonYaMTQ960Mg2",
+					"merchant" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+					"executor" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+					"creator" => "vjw*RDMKDljKVDve1Vtcplgu",
+					"state" => 1,
+					"completeAfter" => null,
+					"completeBefore" => null,
+					"pickupTask" => false,
+					"notes" => "",
+					"trackingViewed" => false,
+					"recipients" => [],
+					"eta" => null,
+					"delayTime" => null,
+					"estimatedCompletionTime" => null,
+					"estimatedArrivalTime" => null,
+					"dependencies" => [],
+					"completionDetails" => [
+						"failureNotes" => "",
+						"failureReason" => "NONE",
+						"events" => [],
+						"actions" => [],
+						"time" => null,
+						"firstLocation" => [],
+						"lastLocation" => [],
+						"unavailableAttachments" => []
+					],
+					"feedback" => [],
+					"metadata" => [],
+					"quantity" => 0,
+					"serviceTime" => 0,
+					"identity" => [
+						"failedScanCount" => 0,
+						"checksum" => null
+					],
+					"appearance" => [
+						"triangleColor" => null
+					],
+					"scanOnlyRequiredBarcodes" => false,
+					"container" => [
+						"type" => "WORKER",
+						"worker" => "ZxcnkJi~79nonYaMTQ960Mg2"
+					],
+					"destination" => [
+						"id" => "nk5xGuf1eQguYXg1*mIVl0Ut",
+						"timeCreated" => 1643317843000,
+						"timeLastModified" => 1643317843121,
+						"location" => [
+							-117.8764687,
+							33.8078476
+						],
+						"address" => [
+							"apartment" => "",
+							"state" => "California",
+							"postalCode" => "92806",
+							"number" => "2695",
+							"street" => "East Katella Avenue",
+							"city" => "Anaheim",
+							"country" => "United States",
+							"name" => "Honda Center"
+						],
+						"notes" => "",
+						"metadata" => [],
+						"googlePlaceId" => "ChIJXyczhHXX3IARFVUqyhMqiqg",
+						"warnings" => []
+					]
+				],
+				"listUnassignedTasks" => [
+					"tasks" => [
+						"id" => "3VtEMGudjwjjM60j7deSIY3j",
+						"timeCreated" => 1643317843000,
+						"timeLastModified" => 1643319602671,
+						"organization" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+						"shortId" => "c77ff497",
+						"trackingURL" => "https://onf.lt/c77ff497",
+						"worker" => "ZxcnkJi~79nonYaMTQ960Mg2",
+						"merchant" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+						"executor" => "nYrkNP6jZMSKgBwG9qG7ci3J",
+						"creator" => "vjw*RDMKDljKVDve1Vtcplgu",
+						"state" => 1,
+						"completeAfter" => null,
+						"completeBefore" => null,
+						"pickupTask" => false,
+						"notes" => "",
+						"trackingViewed" => false,
+						"recipients" => [],
+						"eta" => null,
+						"delayTime" => null,
+						"estimatedCompletionTime" => null,
+						"estimatedArrivalTime" => null,
+						"dependencies" => [],
+						"completionDetails" => [
+							"failureNotes" => "",
+							"failureReason" => "NONE",
+							"events" => [],
+							"actions" => [],
+							"time" => null,
+							"firstLocation" => [],
+							"lastLocation" => [],
+							"unavailableAttachments" => []
+						],
+						"feedback" => [],
+						"metadata" => [],
+						"quantity" => 0,
+						"serviceTime" => 0,
+						"identity" => [
+							"failedScanCount" => 0,
+							"checksum" => null
+						],
+						"appearance" => [
+							"triangleColor" => null
+						],
+						"scanOnlyRequiredBarcodes" => false,
+						"container" => [
+							"type" => "WORKER",
+							"worker" => "ZxcnkJi~79nonYaMTQ960Mg2"
+						],
+						"destination" => [
+							"id" => "nk5xGuf1eQguYXg1*mIVl0Ut",
+							"timeCreated" => 1643317843000,
+							"timeLastModified" => 1643317843121,
+							"location" => [
+								-117.8764687,
+								33.8078476
+							],
+							"address" => [
+								"apartment" => "",
+								"state" => "California",
+								"postalCode" => "92806",
+								"number" => "2695",
+								"street" => "East Katella Avenue",
+								"city" => "Anaheim",
+								"country" => "United States",
+								"name" => "Honda Center"
+							],
+							"notes" => "",
+							"metadata" => [],
+							"googlePlaceId" => "ChIJXyczhHXX3IARFVUqyhMqiqg",
+							"warnings" => []
+						]
+					]
+				]
 			]
 		]
 	]
