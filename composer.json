@@ -1,5 +1,5 @@
 {
-	"name": "onfleet/php-onfleet",
+	"name": "rudiullon/php-onfleet",
 	"description": "Onfleet's PHP API Wrapper Package",
 	"license": "MIT",
 	"keywords": [
@@ -20,6 +20,12 @@
 		{
 			"name": "Santiago Botero Ruiz",
 			"email": "santiago.botero@onfleet.com"
+		}
+	],
+	"collaborators": [
+		{
+			"name": "Rudi Ullon",
+			"email": "rudi@ullon.com"
 		}
 	],
 	"scripts": {
