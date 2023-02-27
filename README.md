@@ -257,7 +257,7 @@ $onfleet->workers->deleteOne("<24_digit_ID>");
 - Get all the recipients:
   ```php
   try {
-    $tasks = $onfleet->tasks->get([ "from" =>"1557936000000", "to" => "1558022400000" });
+    $tasks = $onfleet->tasks->get([ "from" =>"1557936000000", "to" => "1558022400000" ]);
     foreach ($tasks['tasks'] as $task) {
       if (is_set($task['recipients'][0])) {
         // Do something with the recipients
