@@ -78,7 +78,7 @@ class Methods
 		if (count($args) >= 1 && in_array($method, ['GET', 'DELETE', 'PUT'])) {
 			// If the 2nd argument is part of this array, this is a new endpoint
 			// This covers get(id, params) and insertTask(id, params)
-			if (in_array($args[1], ['name', 'shortId', 'phone', 'workers', 'organizations', 'teams'])) {
+			if (isset($args[1]) && in_array($args[1], ['name', 'shortId', 'phone', 'workers', 'organizations', 'teams'])) {
 				$url = self::replaceWithEndpointAndParam($url, $args[1], $args[0]);
 				// If the 1st argument is a base 64 encoded ID, replaces URL path with ID
 				// This covers get(id), update(id), and deleteOne(id)
