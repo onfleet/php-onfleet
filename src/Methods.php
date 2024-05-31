@@ -134,7 +134,7 @@ class Methods
 					$hasBody = true;
 				}
 				if (isset($item['googleApiKey'])) {
-					$api->api->headers["X-API-Key"] = 'Google ' . $item['googleApiKey'];
+					$api->api->headers[] = 'X-API-Key: Google ' . $item['googleApiKey'];
 				}
 				$queryParams = [];
 				if (isset($item['startDate'])) {

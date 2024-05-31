@@ -204,8 +204,8 @@ $data = [
   "hubId" => "<hubId>", // Required
   "workerId" => "<workerId>", // Required
   "googleApiKey" => "<googleApiKey>", // Optional
-  "startDate" => "<startDate>", // Optional
-  "endDate" => "<endDate>" // Optional
+  "startDate" => "<startDate>", // Optional - Timestamp format e.g. 1557936000000
+  "endDate" => "<endDate>" // Optional - Timestamp format e.g. 1557936000000
 ];
 
 $onfleet->workers->getDeliveryManifest($data);
