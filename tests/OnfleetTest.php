@@ -453,4 +453,25 @@ class OnfleetTest extends TestCase
 	{
 		return include("Response.php");
 	}
+
+	/**
+	 * @dataProvider data
+	 */
+	public function testGetDeliveryManifest($data)
+	{
+		$curlClient = $this->createMock(CurlClient::class);
+		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getManifestProvider"]]);
+		$onfleet = new Onfleet($data["apiKey"]);
+		$onfleet->api->client = $curlClient;
+		$response = $onfleet->workers->getDeliveryManifest([
+			"hubId" => "kyfYe*wyVbqfomP2HTn5dAe1~*O",
+			"workerId" => "kBUZAb7pREtRn*8wIUCpjnPu",
+			"googleApiKey" => "<google_direction_api_key>",
+			"startDate" => "1455072025000",
+			"endDate" => "1455072025000'",
+		]);
+		self::assertIsArray($response);
+		self::assertSame($response["manifestDate"], 1694199600000);
+		self::assertSame(count($response["turnByTurn"]), 1);
+	}
 }

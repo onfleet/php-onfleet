@@ -25,7 +25,11 @@ class Workers extends Resources
 			'insertTask' =>  ['method' => 'PUT', 'path' => '/containers/workers/:workerId'],
 			'getSchedule' =>  ['method' => 'GET', 'path' => '/workers/:workerId/schedule'],
 			'setSchedule' => ['method' => 'POST', 'path' => '/workers/:workerId/schedule'],
-			'matchMetadata' => ['method' => 'POST', 'path' => '/workers/metadata']
+			'matchMetadata' => ['method' => 'POST', 'path' => '/workers/metadata'],
+			'getDeliveryManifest' => [
+				'method' => 'POST', 'path' => '/integrations/marketplace',
+				'deliveryManifestObject' => true
+			],
 		]);
 	}
 }

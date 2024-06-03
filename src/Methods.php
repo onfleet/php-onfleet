@@ -63,6 +63,7 @@ class Methods
 		$path = $methodData['path'] ?? '';
 		$altPath = $methodData['altPath'] ?? [];
 		$queryParams = $methodData['queryParams'] ?? [];
+		$deliveryManifestObject = $methodData['deliveryManifestObject'] ?? [];
 		$timeoutInMilliseconds = $methodData['timeoutInMilliseconds'] ?? 0;
 
 		$url = "{$api->api->baseUrl}{$path}";
@@ -121,6 +122,33 @@ class Methods
 			}
 			$url = "{$url}{$httpQueryParams}";
 		}
+
+		// Reference https://docs.onfleet.com/reference/delivery-manifest
+		if ($deliveryManifestObject && isset($args[0]) && count($args) > 0) {
+			foreach ($args as $item) {
+				if (isset($item['hubId']) && isset($item['workerId'])) {
+					$body = array(
+						'path' => 'providers/manifest/generate?hubId=' . $item['hubId'] . '&workerId=' . $item['workerId'],
+						'method' => "GET"
+					);
+					$hasBody = true;
+				}
+				if (isset($item['googleApiKey'])) {
+					$api->api->headers[] = 'X-API-Key: Google ' . $item['googleApiKey'];
+				}
+				$queryParams = [];
+				if (isset($item['startDate'])) {
+					$queryParams['startDate'] = $item['startDate'];
+				}
+				if (isset($item['endDate'])) {
+					$queryParams['endDate'] = $item['endDate'];
+				}
+				if (!empty($queryParams)) {
+					$url .= '?' . http_build_query($queryParams);
+				}
+			}
+		}
+		
 
 		$result = $api->api->client->execute($url, $method, $api->api->headers, ($hasBody ? $body : []), $timeoutInMilliseconds);
 

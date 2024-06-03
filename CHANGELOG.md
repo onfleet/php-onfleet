@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2024-05-17
+### Added
+- Added support for Worker's Route Delivery Manifest
+
 ## [1.0.4] - 2023-10-05
 ### Fixed
 - Removed library that causes conflicts with Laravel framework
