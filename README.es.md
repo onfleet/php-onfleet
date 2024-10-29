@@ -88,9 +88,9 @@ Estas son las operaciones disponibles para cada endpoint:
 | [Organization](https://docs.onfleet.com/reference#organizations) | get(), get(id) | x | insertTask(id, obj) | x |
 | [Recipients](https://docs.onfleet.com/reference#recipients) | get(id), get(name, 'name'), get(phone, 'phone') | create(obj), matchMetadata(obj) | update(id, obj) | x |
 | [Tasks](https://docs.onfleet.com/reference#tasks) | get(query), get(id), get(shortId, 'shortId') | create(obj), clone(id), forceComplete(id), batch(obj), autoAssign(obj), matchMetadata(obj) | update(id, obj) | deleteOne(id) |
-| [Teams](https://docs.onfleet.com/reference#teams) | get(), get(id), getWorkerEta(id, obj) | create(obj), autoDispatch(id, obj) | update(id, obj), insertTask(id, obj) | deleteOne(id) |
+| [Teams](https://docs.onfleet.com/reference#teams) | get(), get(id), getWorkerEta(id, obj), getTasks(id) | create(obj), autoDispatch(id, obj) | update(id, obj), insertTask(id, obj) | deleteOne(id) |
 | [Webhooks](https://docs.onfleet.com/reference#webhooks) | get() | create(obj) | x | deleteOne(id) |
-| [Workers](https://docs.onfleet.com/reference#workers) | get(), get(query), get(id), getByLocation(obj), getSchedule(id) | create(obj), setSchedule(id, obj), matchMetadata(obj), getDeliveryManifest(obj) | update(id, obj), insertTask(id, obj) | deleteOne(id) |
+| [Workers](https://docs.onfleet.com/reference#workers) | get(), get(query), get(id), getByLocation(obj), getSchedule(id), getTasks(id) | create(obj), setSchedule(id, obj), matchMetadata(obj), getDeliveryManifest(obj) | update(id, obj), insertTask(id, obj) | deleteOne(id) |
 
 #### Peticiones GET
 Para obtener todos los elementos disponibles en un recurso, éstas llamadas retornan un `Promise` con el arreglo de los resultados:

@@ -17,7 +17,8 @@ class Teams extends Resources
 			'deleteOne' => ['method' => 'DELETE', 'path' => '/teams/:teamId'],
 			'insertTask' =>  ['method' => 'PUT', 'path' => '/containers/teams/:teamId'],
 			'autoDispatch' =>  ['method' => 'POST', 'path' => '/teams/:teamId/dispatch'],
-			'getWorkerEta' => ['method' => 'GET', 'path' => '/teams/:teamId/estimate', 'queryParams' => true]
+			'getWorkerEta' => ['method' => 'GET', 'path' => '/teams/:teamId/estimate', 'queryParams' => true],
+			'getTasks' => ['method' => 'GET', 'path' => '/teams/:teamId/tasks', 'queryParams' => true]
 		]);
 	}
 }
