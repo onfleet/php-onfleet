@@ -502,4 +502,20 @@ class OnfleetTest extends TestCase
 		self::assertIsArray($response);
 		self::assertSame($response[0]["shortId"], 'c77ff497');
 	}
+
+	/**
+	 * @dataProvider data
+	 */
+	public function testGetCustomFields($data)
+	{
+		$curlClient = $this->createMock(CurlClient::class);
+		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["customFields"]]);
+		$onfleet = new Onfleet($data["apiKey"]);
+		$onfleet->api->client = $curlClient;
+		$response = $onfleet->customFields->get([
+			"integration" => "shopify",
+		]);
+		self::assertIsArray($response);
+		self::assertSame($response["fields"][0]["key"], 'test');
+	}
 }
