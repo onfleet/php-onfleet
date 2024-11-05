@@ -30,6 +30,7 @@ class Workers extends Resources
 				'method' => 'POST', 'path' => '/integrations/marketplace',
 				'deliveryManifestObject' => true
 			],
+			'getTasks' => ['method' => 'GET', 'path' => '/workers/:workerId/tasks', 'queryParams' => true]
 		]);
 	}
 }

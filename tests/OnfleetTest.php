@@ -474,4 +474,48 @@ class OnfleetTest extends TestCase
 		self::assertSame($response["manifestDate"], 1694199600000);
 		self::assertSame(count($response["turnByTurn"]), 1);
 	}
+
+	/**
+	 * @dataProvider data
+	 */
+	public function testWorkersGetTasks($data)
+	{
+		$curlClient = $this->createMock(CurlClient::class);
+		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["workersTasks"]]);
+		$onfleet = new Onfleet($data["apiKey"]);
+		$onfleet->api->client = $curlClient;
+		$response = $onfleet->workers->getTasks('Mdfs*NDZ1*lMU0abFXAT82lM');
+		self::assertIsArray($response);
+		self::assertSame($response[0]["shortId"], 'c77ff497');
+	}
+
+	/**
+	 * @dataProvider data
+	 */
+	public function testTeamUnassignedTasks($data)
+	{
+		$curlClient = $this->createMock(CurlClient::class);
+		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["workersTasks"]]);
+		$onfleet = new Onfleet($data["apiKey"]);
+		$onfleet->api->client = $curlClient;
+		$response = $onfleet->teams->getTasks('K3FXFtJj2FtaO2~H60evRrDc');
+		self::assertIsArray($response);
+		self::assertSame($response[0]["shortId"], 'c77ff497');
+	}
+
+	/**
+	 * @dataProvider data
+	 */
+	public function testGetCustomFields($data)
+	{
+		$curlClient = $this->createMock(CurlClient::class);
+		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["customFields"]]);
+		$onfleet = new Onfleet($data["apiKey"]);
+		$onfleet->api->client = $curlClient;
+		$response = $onfleet->customFields->get([
+			"integration" => "shopify",
+		]);
+		self::assertIsArray($response);
+		self::assertSame($response["fields"][0]["key"], 'test');
+	}
 }

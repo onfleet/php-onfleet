@@ -27,6 +27,7 @@ class Onfleet
 	public Resources\Teams $teams;
 	public Resources\Webhooks $webhooks;
 	public Resources\Workers $workers;
+	public Resources\CustomFields $customFields;
 
 	/**
 	 * @throws ValidationError
@@ -80,6 +81,7 @@ class Onfleet
 		$this->teams = new Resources\Teams($this);
 		$this->webhooks = new Resources\Webhooks($this);
 		$this->workers = new Resources\Workers($this);
+		$this->customFields = new Resources\CustomFields($this);
 	}
 
 	/**

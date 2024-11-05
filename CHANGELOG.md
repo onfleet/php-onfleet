@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2024-11-04
+### Added
+- New `getTasks` endpoints for Teams and Workers
+- Added Custom field support for node API wrapper
+
 ## [1.0.5] - 2024-05-17
 ### Added
 - Added support for Worker's Route Delivery Manifest

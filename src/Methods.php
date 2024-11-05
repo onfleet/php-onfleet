@@ -97,7 +97,10 @@ class Methods
 				$hasBody = true;
 			}
 		}
-
+		if (in_array($method, ['PUT', 'DELETE']) && strpos($url, 'customFields') !== false && is_array($args)) {
+			$body = $args[0];
+			$hasBody = true;
+		}		
 		// POST Prep - 3 different cases
 		if ($method === 'POST') {
 			if (is_string($args[0]) && self::isBase64Encoded($args[0])) { // forceComplete, clone, and autoDispatch (with ID)
