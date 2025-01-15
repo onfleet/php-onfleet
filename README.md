@@ -77,7 +77,7 @@ $onfleet->verifyKey();  // Returns a boolean
 
 ### Throttling
 
-Rate limiting is enforced by the API with a threshold of 20 requests per second across all your organization's API keys. Learn more about it [here](https://docs.onfleet.com/reference#throttling).
+Rate limiting is enforced by the API with a threshold of 20 requests per second across all your organization's API keys. Learn more about it [here](https://docs.onfleet.com/reference/throttling).
 
 We have also implemented a limiter on this library to avoid you from unintentionally exceeding your rate limitations and eventually be banned for.
 
@@ -85,19 +85,20 @@ We have also implemented a limiter on this library to avoid you from unintention
 
 Here are the operations available for each entity:
 
-|                                   Entity                                   |                               GET                               |                                            POST                                            |                 PUT                  |    DELETE     |
-| :------------------------------------------------------------------------: | :-------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :----------------------------------: | :-----------: |
-| [Admins/Administrators](https://docs.onfleet.com/reference#administrators) |                              get()                              |                              create(obj), matchMetadata(obj)                               |           update(id, obj)            | deleteOne(id) |
-|        [Containers](https://docs.onfleet.com/reference#containers)         | get(id, 'workers'), get(id, 'teams'), get(id, 'organizations')  |                                             x                                              |           update(id, obj)            |       x       |
-|      [Destinations](https://docs.onfleet.com/reference#destinations)       |                             get(id)                             |                              create(obj), matchMetadata(obj)                               |                  x                   |       x       |
-|              [Hubs](https://docs.onfleet.com/reference#hubs)               |                              get()                              |                                        create(obj)                                         |           update(id, obj)            |       x       |
-|      [Organization](https://docs.onfleet.com/reference#organizations)      |                         get(), get(id)                          |                                             x                                              |         insertTask(id, obj)          |       x       |
-|        [Recipients](https://docs.onfleet.com/reference#recipients)         |         get(id), get(name, 'name'), get(phone, 'phone')         |                              create(obj), matchMetadata(obj)                               |           update(id, obj)            |       x       |
-|             [Tasks](https://docs.onfleet.com/reference#tasks)              |          get(query), get(id), get(shortId, 'shortId')           | create(obj), clone(id), forceComplete(id), batch(obj), autoAssign(obj), matchMetadata(obj) |           update(id, obj)            | deleteOne(id) |
-|             [Teams](https://docs.onfleet.com/reference#teams)              |              get(), get(id), getWorkerEta(id, obj), getTasks(id)              |                             create(obj), autoDispatch(id, obj)                             | update(id, obj), insertTask(id, obj) | deleteOne(id) |
-|          [Webhooks](https://docs.onfleet.com/reference#webhooks)           |                              get()                              |                                        create(obj)                                         |                  x                   | deleteOne(id) |
-|           [Workers](https://docs.onfleet.com/reference#workers)            | get(), get(query), get(id), getByLocation(obj), getSchedule(id), getTasks(id) |                   create(obj), setSchedule(id, obj), matchMetadata(obj), getDeliveryManifest(obj)                  | update(id, obj), insertTask(id, obj) | deleteOne(id) |
-|           [Custom Fields](https://docs.onfleet.com/reference#workers)            | get(query) |                   create(obj)               | update(obj) | delete(obj) |
+|                                     Entity                                     |                                      GET                                      |                                                          POST                                                           |                 PUT                  |    DELETE     |
+|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:-------------:|
+|   [Admins/Administrators](https://docs.onfleet.com/reference/administrators)   |                                     get()                                     |                                             create(obj), matchMetadata(obj)                                             |           update(id, obj)            | deleteOne(id) |
+|      [Batches](https://docs.onfleet.com/reference/create-tasks-in-batch)       |                                    get(id)                                    |                                              create(obj), createAsync(obj)                                              |                  x                   |       x       |
+|          [Containers](https://docs.onfleet.com/reference/containers)           |        get(id, 'workers'), get(id, 'teams'), get(id, 'organizations')         |                                                            x                                                            |           update(id, obj)            |       x       |
+|        [Destinations](https://docs.onfleet.com/reference/destinations)         |                                    get(id)                                    |                                             create(obj), matchMetadata(obj)                                             |                  x                   |       x       |
+|                [Hubs](https://docs.onfleet.com/reference/hubs)                 |                                     get()                                     |                                                       create(obj)                                                       |           update(id, obj)            |       x       |
+|        [Organization](https://docs.onfleet.com/reference/organizations)        |                                get(), get(id)                                 |                                                            x                                                            |         insertTask(id, obj)          |       x       |
+|          [Recipients](https://docs.onfleet.com/reference/recipients)           |                get(id), get(name, 'name'), get(phone, 'phone')                |                                             create(obj), matchMetadata(obj)                                             |           update(id, obj)            |       x       |
+|               [Tasks](https://docs.onfleet.com/reference/tasks)                |                 get(query), get(id), get(shortId, 'shortId')                  | create(obj), clone(id), forceComplete(id), batchCreate(obj), batchCreateAsync(obj), autoAssign(obj), matchMetadata(obj) |           update(id, obj)            | deleteOne(id) |
+|               [Teams](https://docs.onfleet.com/reference/teams)                |              get(), get(id), getWorkerEta(id, obj), getTasks(id)              |                                           create(obj), autoDispatch(id, obj)                                            | update(id, obj), insertTask(id, obj) | deleteOne(id) |
+|            [Webhooks](https://docs.onfleet.com/reference/webhooks)             |                                     get()                                     |                                                       create(obj)                                                       |                  x                   | deleteOne(id) |
+|             [Workers](https://docs.onfleet.com/reference/workers)              | get(), get(query), get(id), getByLocation(obj), getSchedule(id), getTasks(id) |                     create(obj), setSchedule(id, obj), matchMetadata(obj), getDeliveryManifest(obj)                     | update(id, obj), insertTask(id, obj) | deleteOne(id) |
+|          [Custom Fields](https://docs.onfleet.com/reference/workers)           |                                  get(query)                                   |                                                       create(obj)                                                       |             update(obj)              |  delete(obj)  |
 
 #### GET Requests
 
@@ -212,7 +213,7 @@ $data = [
 $onfleet->workers->getDeliveryManifest($data);
 ```
 
-Extended POST requests include `clone`, `forceComplete`, `batchCreate`, `autoAssign` on the _Tasks_ endpoint; `setSchedule` on the _Workers_ endpoint; `autoDispatch` on the _Teams_ endpoint; and `matchMetadata` on all supported entities. For instance:
+Extended POST requests include `clone`, `forceComplete`, `batchCreate`, `autoAssign` on the _Tasks_ endpoint; `setSchedule` on the _Workers_ endpoint; `autoDispatch` on the _Teams_ endpoint; `createAsync` on the _Batch_ endpoint; and `matchMetadata` on all supported entities. For instance:
 
 ```php
 $onfleet->tasks->clone('<24_digit_ID>');
@@ -225,10 +226,12 @@ $onfleet->workers->getDeliveryManifest($data);
 
 $onfleet->teams->autoDispatch('<24_digit_ID>', $data);
 
+$onfleet->batch->createAsync($data);
+
 $onfleet-><entity_name_pluralized>->matchMetadata($data);
 ```
 
-For more details, check our documentation on [`clone`](https://docs.onfleet.com/reference#clone-task), [`forceComplete`](https://docs.onfleet.com/reference#complete-task), [`batchCreate`](https://docs.onfleet.com/reference#create-tasks-in-batch), [`autoAssign`](https://docs.onfleet.com/reference#automatically-assign-list-of-tasks), [`setSchedule`](https://docs.onfleet.com/reference#set-workers-schedule), [`matchMetadata`](https://docs.onfleet.com/reference#querying-by-metadata), [`getDeliveryManifest`](https://docs.onfleet.com/reference/delivery-manifest), and [`autoDispatch`](https://docs.onfleet.com/reference#team-auto-dispatch).
+For more details, check our documentation on [`clone`](https://docs.onfleet.com/reference/clone-task), [`forceComplete`](https://docs.onfleet.com/reference/complete-task), [`batchCreate`](https://docs.onfleet.com/reference/create-tasks-in-batch), [`autoAssign`](https://docs.onfleet.com/reference/automatically-assign-list-of-tasks), [`setSchedule`](https://docs.onfleet.com/reference/set-workers-schedule), [`matchMetadata`](https://docs.onfleet.com/reference/querying-by-metadata), [`getDeliveryManifest`](https://docs.onfleet.com/reference/delivery-manifest), [`autoDispatch`](https://docs.onfleet.com/reference/team-auto-dispatch), and [`createAsync`](https://docs.onfleet.com/reference/create-tasks-in-batch-async).
 
 #### PUT Requests
 

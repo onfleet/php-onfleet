@@ -18,6 +18,7 @@ class Onfleet
 
 	public Resources\Administrators $admins;
 	public Resources\Administrators $administrators;
+	public Resources\Batch $batch;
 	public Resources\Containers $containers;
 	public Resources\Destinations $destinations;
 	public Resources\Hubs $hubs;
@@ -72,6 +73,7 @@ class Onfleet
 	{
 		$this->admins = new Resources\Administrators($this);
 		$this->administrators = new Resources\Administrators($this);
+		$this->batch = new Resources\Batch($this);
 		$this->containers = new Resources\Containers($this);
 		$this->destinations = new Resources\Destinations($this);
 		$this->hubs = new Resources\Hubs($this);
