@@ -1,5 +1,5 @@
 {
-	"name": "joshtwc/php-onfleet",
+	"name": "onfleet/php-onfleet",
 	"description": "Onfleet's PHP API Wrapper Package",
 	"license": "MIT",
 	"keywords": [
@@ -30,8 +30,5 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.5"
-	},
-	"config": {
-		"disable-tls": false
 	}
 }
