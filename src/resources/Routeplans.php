@@ -19,5 +19,5 @@ class Routeplans extends Resources
 			'deleteOne' => ['method' => 'DELETE', 'path' => '/tasks/:routePlanId'],
             'addTasksToRoutePlan' => ['method' => 'PUT','path'=> '/routePlans/:routePlanId/tasks']
 		]);
-	}
+	} 
 }
