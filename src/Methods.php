@@ -168,7 +168,7 @@ class Methods
 		if ($errorCode === 2300) {
 			throw new RateLimitError($errorInfo[0], $errorInfo[1] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode <= 1108 && $errorCode >= 1100) {
-			throw new PermissionError($errorInfo[0], $errorInfo[1]['message]'] ?? '', $errorInfo[2], $errorInfo[3]);
+			throw new PermissionError($errorInfo[0], $errorInfo[1]['message'] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode >= 2500) {
 			throw new ServiceError($errorInfo[0], $errorInfo[1] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode === 2218) { // Precondition error for Auto-Dispatch

@@ -13,10 +13,10 @@ class Routeplans extends Resources
 		$this->endpoints([
 			'create' => ['method' => 'POST', 'path' => '/routePlans'],
 			'get' => [
-				'method' => 'GET', 'path' => '/tasks/:routePlanId', 'altPath' => '/routePlanId', 'queryParams' => true
+				'method' => 'GET', 'path' => '/routePlans/:routePlanId', 'altPath' => '/routePlanId', 'queryParams' => true
 			],
-			'update' => ['method' => 'PUT', 'path' => '/tasks/:routePlanId'],
-			'deleteOne' => ['method' => 'DELETE', 'path' => '/tasks/:routePlanId'],
+			'update' => ['method' => 'PUT', 'path' => '/routePlans/:routePlanId'],
+			'deleteOne' => ['method' => 'DELETE', 'path' => '/routePlans/:routePlanId'],
             'addTasksToRoutePlan' => ['method' => 'PUT','path'=> '/routePlans/:routePlanId/tasks']
 		]);
 	} 
