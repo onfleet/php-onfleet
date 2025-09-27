@@ -99,9 +99,9 @@ class OnfleetTest extends TestCase
 		$curlClient->method('execute')->willReturn(["code" => 200, "success" => true, "data" => $data["getRecipients"]]);
 		$onfleet = new Onfleet($data["apiKey"]);
 		$onfleet->api->client = $curlClient;
-		$response = $onfleet->recipients->get('+18881787788', 'phone');
+		$response = $onfleet->recipients->get('+18885557788', 'phone');
 		self::assertIsArray($response);
-		self::assertSame($response["phone"], "+18881787788");
+		self::assertSame($response["phone"], "+18885557788");
 		self::assertFalse($response["skipSMSNotifications"]);
 	}
 
@@ -191,11 +191,11 @@ class OnfleetTest extends TestCase
 		$onfleet->api->client = $curlClient;
 		$response = $onfleet->workers->update('Mdfs*NDZ1*lMU0abFXAT82lM', [
 			"name" => 'Stephen Curry',
-			"phone" => '+18883133131',
+			"phone" => '+18885553131',
 		]);
 		self::assertIsArray($response);
 		self::assertSame($response["name"], 'Stephen Curry');
-		self::assertSame($response["phone"], '+18883033030');
+		self::assertSame($response["phone"], '+18885553030');
 	}
 
 	/**

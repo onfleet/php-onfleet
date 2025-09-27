@@ -23,6 +23,7 @@ class Onfleet
 	public Resources\Hubs $hubs;
 	public Resources\Organizations $organization;
 	public Resources\Recipients $recipients;
+	public Resources\Routeplans $routeplans;
 	public Resources\Tasks $tasks;
 	public Resources\Teams $teams;
 	public Resources\Webhooks $webhooks;
@@ -77,6 +78,7 @@ class Onfleet
 		$this->hubs = new Resources\Hubs($this);
 		$this->organization = new Resources\Organizations($this);
 		$this->recipients = new Resources\Recipients($this);
+		$this->routeplans = new Resources\Routeplans($this);
 		$this->tasks = new Resources\Tasks($this);
 		$this->teams = new Resources\Teams($this);
 		$this->webhooks = new Resources\Webhooks($this);
