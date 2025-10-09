@@ -27,7 +27,7 @@ class Methods
 	 */
 	public static function replaceWithId(string $url, string $id): string
 	{
-		return preg_replace('/:[a-z]*Id/', $id, $url);
+		return preg_replace('/:[a-zA-Z]*Id/', $id, $url);
 	}
 
 	/**
@@ -43,7 +43,7 @@ class Methods
 		if (in_array($endpoint, ['workers', 'teams', 'organizations'])) {
 			$path = preg_replace('/\/:param/', "", $url);
 		}
-		return preg_replace('/:[a-z]*Id$/', "{$endpoint}/{$id}", $path);
+		return preg_replace('/:[a-zA-Z]*Id$/', "{$endpoint}/{$id}", $path);
 	}
 
 	/**
@@ -159,16 +159,16 @@ class Methods
 
 		$errorCode = $result['error']['message']['error'];
 		$errorInfo = [
-			$result['error']['message']['message'],
-			$result['error']['message']['cause'],
+			$result['error']['message']['message'] ?? '',
+			$result['error']['message']['cause'] ?? '',
 			$errorCode,
-			$result['error']['message']['request'],
+			$result['error']['message']['request'] ?? '',
 		];
-
+		
 		if ($errorCode === 2300) {
 			throw new RateLimitError($errorInfo[0], $errorInfo[1] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode <= 1108 && $errorCode >= 1100) {
-			throw new PermissionError($errorInfo[0], $errorInfo[1] ?? '', $errorInfo[2], $errorInfo[3]);
+			throw new PermissionError($errorInfo[0], $errorInfo[1]['message'] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode >= 2500) {
 			throw new ServiceError($errorInfo[0], $errorInfo[1] ?? '', $errorInfo[2], $errorInfo[3]);
 		} else if ($errorCode === 2218) { // Precondition error for Auto-Dispatch
