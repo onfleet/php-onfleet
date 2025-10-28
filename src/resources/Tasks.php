@@ -20,6 +20,8 @@ class Tasks extends Resources
 			'clone' => ['method' => 'POST', 'path' => '/tasks/:taskId/clone'],
 			'forceComplete' => ['method' => 'POST', 'path' => '/tasks/:taskId/complete'],
 			'batchCreate' => ['method' => 'POST', 'path' => '/tasks/batch'],
+			'batchCreateAsync' => ['method' => 'POST', 'path' => '/tasks/batch-async'],
+			'getBatchCreateAsyncStatus' => ['method' => 'GET', 'path' => '/tasks/batch/:batchId'],
 			'autoAssign' => ['method' => 'POST', 'path' => '/tasks/autoAssign'],
 			'matchMetadata' => ['method' => 'POST', 'path' => '/tasks/metadata']
 		]);
