@@ -93,6 +93,7 @@ Estas son las operaciones disponibles para cada endpoint:
 | [Webhooks](https://docs.onfleet.com/reference#webhooks) | get() | create(obj) | x | deleteOne(id) |
 | [Workers](https://docs.onfleet.com/reference#workers) | get(), get(query), get(id), getByLocation(obj), getSchedule(id), getTasks(id) | create(obj), setSchedule(id, obj), matchMetadata(obj), getDeliveryManifest(obj) | update(id, obj), insertTask(id, obj) | deleteOne(id) |
 |           [Custom Fields](https://docs.onfleet.com/reference#workers)            | get(query) |                   create(obj)               | update(obj) | delete(obj) |
+| [Orders](https://docs.onfleet.com/reference/orders) | get(id) | create(obj), cancel(obj), clone(id), reject(id), quote(obj) | update(id, obj) | x |
 
 #### Peticiones GET
 Para obtener todos los elementos disponibles en un recurso, éstas llamadas retornan un `Promise` con el arreglo de los resultados:
